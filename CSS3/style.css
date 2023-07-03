@@ -1,0 +1,293 @@
+/* paleta de colores para el codigo*/
+:root {
+    --blanco: #ffffff;
+    --oscuro: #212121;
+    --primario: #81DBF6;
+    --secundario: #f54d1a;
+    --terciario: #BBD3DC;
+    --degradado: #E1FFFC;
+
+}
+
+
+/*Con este codigo de html y body, es para hacer que  sea mas facil trabajar con la escala "em" y poder hacer calculos mas faciles.
+Es decir que 1em = 10px. ya con esto se calcura mas facil las escalas de textos e imagenes*/
+html{
+    font-size: 62,5%;
+    box-sizing: border-box; /*Hack para box model*/
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
+}
+
+/*Este codigo es para hacer scroll en el contenido, por secciones*/
+.menu, .servicios, .formulario{
+    scroll-snap-align: center;
+    scroll-snap-stop: always;    
+}
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+body{
+    font-size: 12px;
+    font-family: 'Krub', sans-serif;
+    background-image: linear-gradient(to top, var(--degradado)0%, var(--blanco)100%);
+    
+}
+
+
+.titulo {
+    text-align: center;
+    font-size: 1.5rem;
+    color: var(--oscuro);
+
+
+}
+
+.titulo span{
+    font-size: .8rem;
+    color: var(--secundario);
+    
+}
+
+/*Contenedores para que todo quede centrado*/
+.contenedor {
+    max-width: 60rem;
+    margin: 0 auto;
+}
+.contenedor h2{
+    text-align: center;
+    font-weight: bold;
+}
+
+
+/*Este codigo, se usa para darle fondo al bloque donde va el menu de navegacion*/
+.nav-bg {
+    background-color: var(--primario);
+}
+
+/*Menu de navegacion y sus elementos*/
+.menu {
+    
+    display: flex;
+    flex-direction: column;
+
+}
+/*Para el menu principal, cambiar la orientacion*/
+@media (min-width: 30rem) {
+    .menu {
+        flex-direction: row;
+        justify-content: space-between;
+    } 
+   
+}
+.menu a{
+    display: block;
+    color: var(--oscuro);
+    text-decoration: none;
+    font-size: .8rem;
+    font-weight: 700;
+    padding: 1rem;
+    text-align: center;
+}
+
+.menu a:hover {
+    background-color: var(--terciario);
+    
+    
+}
+
+
+
+.fondo{
+    background-image: url(../img/fondo2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 300px;
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+.contenido-fondo{
+    position: absolute;
+    background-color: rgb(0 0 0 / 40% );
+    width: 100%;
+    height: 100%;
+
+    /**Alienear verticalmente con el siguiente codigo**/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.contenido-fondo h2{
+    color: var(--blanco);
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+.contenido-fondo p {
+    color: var(--blanco);
+
+}
+
+.boton {
+    background-color: var(--primario);
+    margin-top: 1.5rem;
+    padding: 1rem;
+    font-size: .8rem;
+    text-decoration: none;
+    text-align: center;
+    font-weight: bold;
+    color: var(--blanco);
+    text-transform: uppercase;
+    border-radius: 0.5rem;
+    width: 80%;
+    border: none;
+
+}
+.boton:hover{
+    cursor: pointer;
+}
+/*Para cambiar el tamaño del boton en varios dispositivos**/
+@media (min-width: 30rem) {
+    .boton {
+        width: auto;
+    }
+   
+}
+/*utilidades, esto seran codigos que podran ser usados en ciertos caso necesiarios, sin necesidar de modificar todo el codigo, solo para dara algunas especifiaciones adicionales al estilo. */
+.w-100 {
+    width: 100%;
+
+}
+
+@media (min-width: 30rem) {
+   .w-100 {
+    width: auto;
+   }
+}
+.flex{
+    display: flex;
+    margin-top: .6rem;
+}
+.alinear-derecha{
+    justify-content: flex-end;
+}
+
+
+.sombra{
+    -webkit-box-shadow: 0px -5px 15px 0px rgba(128,124,128,1);
+    -moz-box-shadow: 0px -5px 15px 0px rgba(128,124,128,1);
+    box-shadow: 0px -5px 15px 0px rgba(128,124,128,1);
+    background-color: var(--blanco);
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
+/*1fr es una fraccion*/
+@media (min-width: 30rem) {
+    .servicios{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 1.5rem;
+    }
+    
+}
+
+.servicio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.servicio h3 {
+    text-align: center;
+    font-weight: normal;
+    color: var(--oscuro);
+    font-weight: bold;
+}
+
+.servicio p {
+    line-height: 2;
+    text-align: center;
+}
+.servicio .iconos{
+    height: 7rem;
+    width: 7rem;
+    background-color: var(--terciario);
+    border-radius: 50%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+/*Estilos para la seccion contacto*/
+
+.formulario {
+    background-color: var(--terciario);
+    width: min( 40rem, 100% ); /*Este min, lo que hace es adapatar el contenido al espacion minimo del sitio, basandose en los valores indicados entre ()*/
+    margin: 0 auto;
+    padding: 2rem;
+    border-radius: 1rem;
+
+}
+
+.formulario fieldset{
+    border: none;
+}
+
+.formulario legend{
+    text-align: center;
+    font-weight: bold;
+    color: var(--oscuro);
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+
+}
+
+@media (min-width: 30rem) {
+    .contenedor-campos {
+        display: grid;
+        grid-template-columns: 50% 50%;
+        grid-template-rows: auto auto 10rem;
+        column-gap: 1rem;
+    }
+   
+}
+
+    .campos:nth-child(3), .campos:nth-child(4){
+        grid-column: 3 / 1;
+    }
+
+.campos {
+    margin-bottom: 1rem;
+}
+
+.campos label{
+    color: var(--oscuro);
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.campos textarea {
+    height: 10rem;
+    width: 0 auto;
+    margin-bottom: 1rem;
+
+}
+
+.input-text{
+    width: 100%;
+    border: none;
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
+
+/*Pie de pagina*/
+
+.footer{
+    text-align: center;
+    font-weight: bold;
+}
+
